@@ -1,0 +1,35 @@
+Author: Galil Gertner
+Date: 2.27.17
+
+
+General strategy:
+
+    1. Divide Chicago into different manageable 'zones'
+        - Our data has several different ways of dividing the city
+            - Block by block seems to be too specific and requiring a
+              map lookup to determine it's location.
+            - Lat., Long. location is also very specific, but provides an easy
+              way to map our results to Google Maps
+            - Communities: too large
+            - Beats: perhaps just right (Are they based on pop. density?)
+
+            Proposal:
+                Divide the city into rather small, but equal units,
+                comprising a several block radius, and use lat/long to
+                determine if a location falls in that area.
+                QUESTION: Should the units be equal in land area or
+                population density.  And if in population density, how
+                do we get that information?
+
+    2. Filter our data to only include certain types of crime, so that we
+       can provide a map layer of only one type of crime around the city.
+
+    3. Create a block-score based on:
+        a. City mean score
+        b. Frequency
+        c. Temporal proximity
+        d. Neighboring blocks
+        e. Population density?
+
+    4. Compose a crime index based on the weighted values of all of the
+       individual types of crime data.
